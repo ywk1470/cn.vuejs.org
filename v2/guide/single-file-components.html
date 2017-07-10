@@ -42,6 +42,8 @@
         <!-- <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
         <!-- <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'> -->
 
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
 
@@ -130,8 +132,9 @@
                 
                     
     <div class="sidebar">
-    <ul class="main-menu">
-        <li>
+    <div class="sidebar-inner">
+        <ul class="main-menu">
+            <li>
   <form id="search-form">
     <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
   </form>
@@ -183,27 +186,27 @@
 </li>
 <li><a href="/about/" class="nav-link">参与贡献</a></li>
 
-    </ul>
-    <div class="list">
-        <div class="main-sponsor">
-            <span>赞助者</span><br>
-            <a href="https://console.upyun.com/register/?invite=H124C2iMZ&utm_source=vue&utm_medium=ad&utm_content=con" target="_blank">
-                <img src="/images/upyun-main.png">
+        </ul>
+        <div class="list">
+            <div class="main-sponsor">
+                <span>赞助者</span><br>
+                <a href="https://console.upyun.com/register/?invite=H124C2iMZ&utm_source=vue&utm_medium=ad&utm_content=con" target="_blank">
+                    <img src="/images/upyun-main.png">
+                </a>
+            </div>
+            <a class="become-backer" href="/support-vuejs">
+                Become a Sponsor
             </a>
-        </div>
-        <a class="become-backer" href="/support-vuejs">
-            Become a Sponsor
-        </a>
-        <h2>
-            
-            
-                <select class="version-select">
-                    <option value="SELF" selected>2.x</option>
-                    <option value="v1">1.0</option>
-                </select>
-            
-        </h2>
-        <ul class="menu-root">
+            <h2>
+                
+                
+                    <select class="version-select">
+                        <option value="SELF" selected>2.x</option>
+                        <option value="v1">1.0</option>
+                    </select>
+                
+            </h2>
+            <ul class="menu-root">
     
         
         
@@ -573,9 +576,22 @@
             <a href="/v2/guide/join.html" class="sidebar-link">加入Vue.js社区</a>
         </li>
     
+        
+        
+            
+            
+            
+            
+        
+        
+        <li>
+            <a href="/v2/guide/team.html" class="sidebar-link">认识团队</a>
+        </li>
+    
     
 </ul>
 
+        </div>
     </div>
 </div>
 
@@ -610,8 +626,8 @@
 <p>正如我们说过的，我们可以使用预处理器来构建简洁和功能更丰富的组件，比如 Pug，Babel (with ES2015 modules)，和 Stylus。</p>
 <p><img src="/images/vue-component-with-preprocessors.png" style="display: block; margin: 30px auto"></p>
 <p>这些特定的语言只是例子，你可以只是简单地使用 Babel，TypeScript，SCSS，PostCSS - 或者其他任何能够帮助你提高生产力的预处理器。如果搭配 <code>vue-loader</code> 使用 Webpack，它也是把 CSS Modules 当作第一公民来对待的。</p>
-<h3 id="What-About-Separation-of-Concerns"><a href="#What-About-Separation-of-Concerns" class="headerlink" title="What About Separation of Concerns?"></a>What About Separation of Concerns?</h3><p>One important thing to note is that <strong>separation of concerns is not equal to separation of file types.</strong> In modern UI development, we have found that instead of dividing the codebase into three huge layers that interweaves with one another, it makes much more sense to divide them into loosely-coupled components and compose them. Inside a component, its template, logic and styles are inherently coupled, and collocating them actually makes the component more cohesive and maintainable.</p>
-<p>Even if you don’t like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files:</p>
+<h3 id="怎么看待关注点分离？"><a href="#怎么看待关注点分离？" class="headerlink" title="怎么看待关注点分离？"></a>怎么看待关注点分离？</h3><p>一个重要的事情值得注意，<strong>关注点分离不等于文件类型分离。</strong>在现代 UI 开发中，我们已经发现相比于把代码库分离成三个大的层次并将其相互交织起来，把它们划分为松散耦合的组件再将其组合起来更合理一些。在一个组件里，其模板、逻辑和样式是内部耦合的，并且把他们搭配在一起实际上使得组件更加内聚且更可维护。</p>
+<p>即便你不喜欢单文件组件，你仍然可以把 JavaScript、CSS 分离成独立的文件然后做到热重载和预编译。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- my-component.vue --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>This will be pre-compiled<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./my-component.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">src</span>=<span class="string">"./my-component.css"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
 <h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><h3 id="针对刚接触-JavaScript-模块开发系统的用户"><a href="#针对刚接触-JavaScript-模块开发系统的用户" class="headerlink" title="针对刚接触 JavaScript 模块开发系统的用户"></a>针对刚接触 JavaScript 模块开发系统的用户</h3><p>有了 <code>.vue</code> 组件，我们就进入了高级 JavaScript 应用领域。如果你没有准备好的话，意味着还需要学会使用一些附加的工具：</p>
 <ul>

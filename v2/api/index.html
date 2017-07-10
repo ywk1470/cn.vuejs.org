@@ -42,6 +42,8 @@
         <!-- <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
         <!-- <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'> -->
 
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
 
@@ -130,8 +132,9 @@
                 
                     
     <div class="sidebar">
-    <ul class="main-menu">
-        <li>
+    <div class="sidebar-inner">
+        <ul class="main-menu">
+            <li>
   <form id="search-form">
     <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
   </form>
@@ -183,31 +186,32 @@
 </li>
 <li><a href="/about/" class="nav-link">参与贡献</a></li>
 
-    </ul>
-    <div class="list">
-        <div class="main-sponsor">
-            <span>赞助者</span><br>
-            <a href="https://console.upyun.com/register/?invite=H124C2iMZ&utm_source=vue&utm_medium=ad&utm_content=con" target="_blank">
-                <img src="/images/upyun-main.png">
+        </ul>
+        <div class="list">
+            <div class="main-sponsor">
+                <span>赞助者</span><br>
+                <a href="https://console.upyun.com/register/?invite=H124C2iMZ&utm_source=vue&utm_medium=ad&utm_content=con" target="_blank">
+                    <img src="/images/upyun-main.png">
+                </a>
+            </div>
+            <a class="become-backer" href="/support-vuejs">
+                Become a Sponsor
             </a>
-        </div>
-        <a class="become-backer" href="/support-vuejs">
-            Become a Sponsor
-        </a>
-        <h2>
-            
-            
-                <select class="version-select">
-                    <option value="SELF" selected>2.x</option>
-                    <option value="v1">1.0</option>
-                </select>
-            
-        </h2>
-        <ul class="menu-root">
+            <h2>
+                
+                
+                    <select class="version-select">
+                        <option value="SELF" selected>2.x</option>
+                        <option value="v1">1.0</option>
+                    </select>
+                
+            </h2>
+            <ul class="menu-root">
     
     
 </ul>
 
+        </div>
     </div>
 </div>
 
@@ -1613,14 +1617,14 @@
 </blockquote>
 <p>主要用于保留组件状态或避免重新渲染。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 基本 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 多个条件判断的子组件 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-a</span> <span class="attr">v-if</span>=<span class="string">"a &gt; 1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">comp-b</span> <span class="attr">v-else</span>&gt;</span><span class="tag">&lt;/<span class="name">comp-b</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 和 &lt;transition&gt; 一起使用 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">keep-alive</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Note, <code>&lt;keep-alive&gt;</code> is designed for the case where it has one direct child component that is being toggled. It does not work if you have <code>v-for</code> inside it. When there are multiple conditional children, as above, <code>&lt;keep-alive&gt;</code> requires that only one child is rendered at a time.</p>
+<p>注意，<code>&lt;keep-alive&gt;</code> 是用在其一个直属的子组件被开关的情形。如果你在其中有 <code>v-if</code> 则不会工作。如果有上述的多个条件性的子元素，<code>&lt;keep-alive&gt;</code> 要求同时只有一个字元素被渲染。</p>
 </li>
 <li><p><strong><code>include</code> and <code>exclude</code></strong></p>
 <blockquote>
 <p>2.1.0 新增</p>
 </blockquote>
-<p><code>include</code> 和 <code>exclude</code> 属性允许组件有条件地缓存。二者都可以用逗号分隔字符串或正则表达式来表示:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 逗号分隔字符串 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">include</span>=<span class="string">"a,b"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 正则表达式 (使用 v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"/a|b/"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>include</code> 和 <code>exclude</code> 属性允许组件有条件地缓存。二者都可以用逗号分隔字符串、正则表达式或一个数组来表示:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 逗号分隔字符串 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">include</span>=<span class="string">"a,b"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 正则表达式 (使用 v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"/a|b/"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- Array (use v-bind) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"['a', 'b']"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>匹配首先检查组件自身的 <code>name</code> 选项，如果 <code>name</code> 选项不可用，则匹配它的局部注册名称（父组件 <code>components</code> 选项的键值）。匿名组件不能被匹配。</p>
 <p class="tip"><code>&lt;keep-alive&gt;</code> 不会在函数式组件中正常工作，因为它们没有缓存实例。</p>
 </li>

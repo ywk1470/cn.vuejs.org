@@ -42,6 +42,8 @@
         <!-- <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
         <!-- <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'> -->
 
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
 
@@ -130,8 +132,9 @@
                 
                     
     <div class="sidebar">
-    <ul class="main-menu">
-        <li>
+    <div class="sidebar-inner">
+        <ul class="main-menu">
+            <li>
   <form id="search-form">
     <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
   </form>
@@ -183,27 +186,27 @@
 </li>
 <li><a href="/about/" class="nav-link current">参与贡献</a></li>
 
-    </ul>
-    <div class="list">
-        <div class="main-sponsor">
-            <span>赞助者</span><br>
-            <a href="https://console.upyun.com/register/?invite=H124C2iMZ&utm_source=vue&utm_medium=ad&utm_content=con" target="_blank">
-                <img src="/images/upyun-main.png">
+        </ul>
+        <div class="list">
+            <div class="main-sponsor">
+                <span>赞助者</span><br>
+                <a href="https://console.upyun.com/register/?invite=H124C2iMZ&utm_source=vue&utm_medium=ad&utm_content=con" target="_blank">
+                    <img src="/images/upyun-main.png">
+                </a>
+            </div>
+            <a class="become-backer" href="/support-vuejs">
+                Become a Sponsor
             </a>
-        </div>
-        <a class="become-backer" href="/support-vuejs">
-            Become a Sponsor
-        </a>
-        <h2>
-            
-            
-                <select class="version-select">
-                    <option value="SELF" selected>2.x</option>
-                    <option value="v1">1.0</option>
-                </select>
-            
-        </h2>
-        <ul class="menu-root">
+            <h2>
+                
+                
+                    <select class="version-select">
+                        <option value="SELF" selected>2.x</option>
+                        <option value="v1">1.0</option>
+                    </select>
+                
+            </h2>
+            <ul class="menu-root">
     
         
         
@@ -222,6 +225,7 @@
     
 </ul>
 
+        </div>
     </div>
 </div>
 
@@ -239,6 +243,7 @@
     <div id="contributors">
 <a href="https://github.com/vuejs/cn.vuejs.org/graphs/contributors">cn.vuejs.org 贡献者</a>
 <p>共 <span style="color:#e66;font-size:28px;" v-text="list.length "></span> 人参与贡献，排名不分先后，<a href="https://github.com/vuefe/vuefe.github.io/issues/192">如有遗漏，请告知</a></p>
+<p>目前文档已经进入维护阶段，社区最新的文档/翻译贡献情况可以参阅 GitHub 提供的 <a href="https://github.com/vuejs/cn.vuejs.org/graphs/contributors" target="_blank">contributors</a> 页面。</p>
 <ul class="contributors">
   <a v-for="item in list"
     class="contributor"
@@ -409,6 +414,7 @@ new Vue({
   }
 })
 </script>
+
     
     <blockquote>
 <p>目前急需校对</p>

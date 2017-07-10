@@ -42,6 +42,8 @@
         <!-- <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Roboto Mono' rel='stylesheet' type='text/css'> -->
         <!-- <link href='//fonts.googleapis.com/css?family=Dosis:500&text=Vue.js' rel='stylesheet' type='text/css'> -->
 
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
         <!-- main page styles -->
         <link rel="stylesheet" href="/css/page.css">
 
@@ -130,8 +132,9 @@
                 
                     
     <div class="sidebar">
-    <ul class="main-menu">
-        <li>
+    <div class="sidebar-inner">
+        <ul class="main-menu">
+            <li>
   <form id="search-form">
     <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
   </form>
@@ -183,27 +186,27 @@
 </li>
 <li><a href="/about/" class="nav-link">参与贡献</a></li>
 
-    </ul>
-    <div class="list">
-        <div class="main-sponsor">
-            <span>赞助者</span><br>
-            <a href="https://console.upyun.com/register/?invite=H124C2iMZ&utm_source=vue&utm_medium=ad&utm_content=con" target="_blank">
-                <img src="/images/upyun-main.png">
+        </ul>
+        <div class="list">
+            <div class="main-sponsor">
+                <span>赞助者</span><br>
+                <a href="https://console.upyun.com/register/?invite=H124C2iMZ&utm_source=vue&utm_medium=ad&utm_content=con" target="_blank">
+                    <img src="/images/upyun-main.png">
+                </a>
+            </div>
+            <a class="become-backer" href="/support-vuejs">
+                Become a Sponsor
             </a>
-        </div>
-        <a class="become-backer" href="/support-vuejs">
-            Become a Sponsor
-        </a>
-        <h2>
-            
-            
-                <select class="version-select">
-                    <option value="SELF" selected>2.x</option>
-                    <option value="v1">1.0</option>
-                </select>
-            
-        </h2>
-        <ul class="menu-root">
+            <h2>
+                
+                
+                    <select class="version-select">
+                        <option value="SELF" selected>2.x</option>
+                        <option value="v1">1.0</option>
+                    </select>
+                
+            </h2>
+            <ul class="menu-root">
     
         
         
@@ -573,9 +576,22 @@
             <a href="/v2/guide/join.html" class="sidebar-link">加入Vue.js社区</a>
         </li>
     
+        
+        
+            
+            
+            
+            
+        
+        
+        <li>
+            <a href="/v2/guide/team.html" class="sidebar-link">认识团队</a>
+        </li>
+    
     
 </ul>
 
+        </div>
     </div>
 </div>
 
@@ -701,23 +717,23 @@ new Vue({ el: '#range' })
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span></span></div><div class="line">  <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span></div><div class="line">  <span class="attr">v-bind:item</span>=<span class="string">"item"</span></div><div class="line">  <span class="attr">v-bind:index</span>=<span class="string">"index"</span></div><div class="line">  <span class="attr">v-bind:key</span>=<span class="string">"item.id"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>不自动注入 <code>item</code> 到组件里的原因是，因为这使得组件会紧密耦合到 <code>v-for</code> 如何运作。在一些情况下，明确数据的来源可以使组件可重用。</p>
 <p>下面是一个简单的 todo list 完整的例子：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"todo-list-example"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span></span></div><div class="line">    <span class="attr">v-model</span>=<span class="string">"newTodoText"</span></div><div class="line">    <span class="attr">v-on:keyup.enter</span>=<span class="string">"addNewTodo"</span></div><div class="line">    <span class="attr">placeholder</span>=<span class="string">"Add a todo"</span></div><div class="line">  &gt;</div><div class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span></span></div><div class="line">      <span class="attr">is</span>=<span class="string">"todo-item"</span></div><div class="line">      <span class="attr">v-for</span>=<span class="string">"(todo, index) in todos"</span></div><div class="line">      <span class="attr">v-bind:key</span>=<span class="string">"todo"</span></div><div class="line">      <span class="attr">v-bind:title</span>=<span class="string">"todo"</span></div><div class="line">      <span class="attr">v-on:remove</span>=<span class="string">"todos.splice(index, 1)"</span></div><div class="line">    &gt;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'todo-item'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">`</span></div><div class="line">    &lt;li&gt;</div><div class="line">      &#123;&#123; title &#125;&#125;</div><div class="line">      &lt;button v-on:click="$emit('remove')"&gt;X&lt;/button&gt;</div><div class="line">    &lt;/li&gt;</div><div class="line">  `,</div><div class="line">  <span class="attr">props</span>: [<span class="string">'title'</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#todo-list-example'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">newTodoText</span>: <span class="string">''</span>,</div><div class="line">    <span class="attr">todos</span>: [</div><div class="line">      <span class="string">'Do the dishes'</span>,</div><div class="line">      <span class="string">'Take out the trash'</span>,</div><div class="line">      <span class="string">'Mow the lawn'</span></div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">addNewTodo</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.todos.push(<span class="keyword">this</span>.newTodoText)</div><div class="line">      <span class="keyword">this</span>.newTodoText = <span class="string">''</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"todo-list-example"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span></span></div><div class="line">    <span class="attr">v-model</span>=<span class="string">"newTodoText"</span></div><div class="line">    <span class="attr">v-on:keyup.enter</span>=<span class="string">"addNewTodo"</span></div><div class="line">    <span class="attr">placeholder</span>=<span class="string">"Add a todo"</span></div><div class="line">  &gt;</div><div class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span></span></div><div class="line">      <span class="attr">is</span>=<span class="string">"todo-item"</span></div><div class="line">      <span class="attr">v-for</span>=<span class="string">"(todo, index) in todos"</span></div><div class="line">      <span class="attr">v-bind:key</span>=<span class="string">"index"</span></div><div class="line">      <span class="attr">v-bind:title</span>=<span class="string">"todo"</span></div><div class="line">      <span class="attr">v-on:remove</span>=<span class="string">"todos.splice(index, 1)"</span></div><div class="line">    &gt;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.component(<span class="string">'todo-item'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'\</span></div><div class="line">    &lt;li&gt;\</div><div class="line">      &#123;&#123; title &#125;&#125;\</div><div class="line">      &lt;button v-on:click="$emit('remove<span class="string">')"&gt;X&lt;/button&gt;\</span></div><div class="line">    &lt;/li&gt;\</div><div class="line">  ',</div><div class="line">  <span class="attr">props</span>: [<span class="string">'title'</span>]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#todo-list-example'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">newTodoText</span>: <span class="string">''</span>,</div><div class="line">    <span class="attr">todos</span>: [</div><div class="line">      <span class="string">'Do the dishes'</span>,</div><div class="line">      <span class="string">'Take out the trash'</span>,</div><div class="line">      <span class="string">'Mow the lawn'</span></div><div class="line">    ]</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">addNewTodo</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.todos.push(<span class="keyword">this</span>.newTodoText)</div><div class="line">      <span class="keyword">this</span>.newTodoText = <span class="string">''</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
 <div id="todo-list-example" class="demo">
   <input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Add a todo">
   <ul>
-    <li is="todo-item" v-for="(todo, index) in todos" v-bind:key="todo" v-bind:title="todo" v-on:remove="todos.splice(index, 1)"></li>
+    <li is="todo-item" v-for="(todo, index) in todos" v-bind:key="index" v-bind:title="todo" v-on:remove="todos.splice(index, 1)"></li>
   </ul>
 </div>
 <script>
 Vue.component('todo-item', {
-  template: `
-    <li>
-      {{ title }}
-      <button v-on:click="$emit('remove')">X</button>
-    </li>
-  `,
+  template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit('remove')">X</button>\
+    </li>\
+  ',
   props: ['title']
 })
 new Vue({
