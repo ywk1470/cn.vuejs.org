@@ -697,7 +697,7 @@ ul.demo li {
 @media screen and (max-width: 900px) {
   .sidebar {
     position: fixed;
-    z-index: 8;
+    z-index: 10;
     background-color: #f9f9f9;
     height: 100%;
     top: 0;
@@ -708,8 +708,11 @@ ul.demo li {
     transform: translate(-280px, 0);
   }
   .sidebar .sidebar-inner {
-    padding: 60px 30px 30px;
+    padding: 50px 10px 10px 20px;
     box-sizing: border-box;
+  }
+  .sidebar .sidebar-inner-index {
+    padding: 10px 10px 10px 20px;
   }
   .sidebar .search-query {
     width: 200px;
