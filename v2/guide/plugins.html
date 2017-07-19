@@ -7,6 +7,14 @@
         <meta name="description" content="Vue.js - The Progressive JavaScript Framework">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+        <link rel="alternate" hreflang="x-default" href="https://vuejs.org/v2/guide/plugins.html">
+        <link rel="alternate" hreflang="zh" href="https://cn.vuejs.org/v2/guide/plugins.html">
+        <link rel="alternate" hreflang="ja" href="https://jp.vuejs.org/v2/guide/plugins.html">
+        <link rel="alternate" hreflang="ru" href="https://ru.vuejs.org/v2/guide/plugins.html">
+        <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/plugins.html">
+        <link rel="alternate" hreflang="pt-BR" href="https://br.vuejs.org/v2/guide/plugins.html">
+        <link rel="alternate" hreflang="fr" href="https://fr.vuejs.org/v2/guide/plugins.html">
+
         <meta property="og:type" content="article">
         <meta property="og:title" content="插件 — Vue.js">
         <meta property="og:description" content="Vue.js - The Progressive JavaScript Framework">
@@ -85,8 +93,8 @@
   <ul class="nav-dropdown">
     <li><h4>帮助</h4></li>
     <li><ul>
-      <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
+      <li><a href="http://forum.vuejs.org/" class="nav-link" target="_blank">论坛</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">聊天室</a></li>
       <li><a href="https://github.com/vuejs-templates" class="nav-link" target="_blank">模板</a></li>
     </ul></li>
     <li><h4>信息</h4></li>
@@ -103,10 +111,12 @@
     <li><h4>资源列表</h4></li>
     <li><ul>
       <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">官方仓库</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue 优选</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue 资源</a></li>
     </ul></li>
   </ul>
 </li>
+
 <li class="nav-dropdown-container language">
   <a class="nav-link">多语言</a><span class="arrow"></span>
   <ul class="nav-dropdown">
@@ -147,8 +157,8 @@
   <ul class="nav-dropdown">
     <li><h4>帮助</h4></li>
     <li><ul>
-      <li><a href="http://forum.vuejs.org" class="nav-link" target="_blank">论坛</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" class="nav-link" target="_blank">聊天室</a></li>
+      <li><a href="http://forum.vuejs.org/" class="nav-link" target="_blank">论坛</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">聊天室</a></li>
       <li><a href="https://github.com/vuejs-templates" class="nav-link" target="_blank">模板</a></li>
     </ul></li>
     <li><h4>信息</h4></li>
@@ -165,10 +175,12 @@
     <li><h4>资源列表</h4></li>
     <li><ul>
       <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">官方仓库</a></li>
+      <li><a href="https://curated.vuejs.org/" class="nav-link" target="_blank">Vue 优选</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Vue 资源</a></li>
     </ul></li>
   </ul>
 </li>
+
 <li class="nav-dropdown-container language">
   <a class="nav-link">多语言</a><span class="arrow"></span>
   <ul class="nav-dropdown">
@@ -190,8 +202,8 @@
         <div class="list">
             <div class="main-sponsor">
                 <span>赞助者</span><br>
-                <a href="https://console.upyun.com/register/?invite=H124C2iMZ&utm_source=vue&utm_medium=ad&utm_content=con" target="_blank">
-                    <img src="/images/upyun-main.jpg">
+                <a href="https://cn.100offer.com/how-it-works/?utm_source=vuejs&utm_medium=display&utm_campaign=vuejs_20170704&utm_content=find_new_job&campaign_code=vuejs" target="_blank">
+                    <img src="/images/100offer-main.png">
                 </a>
             </div>
             <a class="become-backer" href="/support-vuejs">
@@ -608,7 +620,7 @@
     
     <h2 id="开发插件"><a href="#开发插件" class="headerlink" title="开发插件"></a>开发插件</h2><p>插件通常会为Vue添加全局功能。插件的范围没有限制——一般有下面几种：</p>
 <ol>
-<li><p>添加全局方法或者属性，如: <a href="https://github.com/vuejs/vue-element" target="_blank" rel="external">vue-element</a> </p>
+<li><p>添加全局方法或者属性，如: <a href="https://github.com/vuejs/vue-element" target="_blank" rel="external">vue-element</a></p>
 </li>
 <li><p>添加全局资源：指令/过滤器/过渡等，如 <a href="https://github.com/vuejs/vue-touch" target="_blank" rel="external">vue-touch</a></p>
 </li>
@@ -620,7 +632,7 @@
 </li>
 </ol>
 <p>Vue.js 的插件应当有一个公开方法 <code>install</code> 。这个方法的第一个参数是 <code>Vue</code> 构造器 , 第二个参数是一个可选的选项对象:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">MyPlugin.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue, options</span>) </span>&#123;</div><div class="line">  <span class="comment">// 1. 添加全局方法或属性</span></div><div class="line">  Vue.myGlobalMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 逻辑...</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 2. 添加全局资源</span></div><div class="line">  Vue.directive(<span class="string">'my-directive'</span>, &#123;</div><div class="line">    bind (el, binding, vnode, oldVnode) &#123;</div><div class="line">      <span class="comment">// 逻辑...</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">  <span class="comment">// 3. 注入组件</span></div><div class="line">  Vue.mixin(&#123;</div><div class="line">    <span class="attr">created</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// 逻辑...</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">  <span class="comment">// 4. 添加实例方法</span></div><div class="line">  Vue.prototype.$myMethod = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</div><div class="line">    <span class="comment">// 逻辑...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">MyPlugin.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue, options</span>) </span>&#123;</div><div class="line">  <span class="comment">// 1. 添加全局方法或属性</span></div><div class="line">  Vue.myGlobalMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 逻辑...</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 2. 添加全局资源</span></div><div class="line">  Vue.directive(<span class="string">'my-directive'</span>, &#123;</div><div class="line">    bind (el, binding, vnode, oldVnode) &#123;</div><div class="line">      <span class="comment">// 逻辑...</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">  <span class="comment">// 3. 注入组件</span></div><div class="line">  Vue.mixin(&#123;</div><div class="line">    <span class="attr">created</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// 逻辑...</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">  <span class="comment">// 4. 添加实例方法</span></div><div class="line">  Vue.prototype.$myMethod = <span class="function"><span class="keyword">function</span> (<span class="params">methodOptions</span>) </span>&#123;</div><div class="line">    <span class="comment">// 逻辑...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h2><p>通过全局方法 Vue.use() 使用插件:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 调用 `MyPlugin.install(Vue)`</span></div><div class="line">Vue.use(MyPlugin)</div></pre></td></tr></table></figure>
 <p>也可以传入一个选项对象:</p>
